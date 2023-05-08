@@ -11,7 +11,8 @@ hang in the game "Splitgate".
 
 Right off the bat, I noticed a few oddities with this particular hang.
 Firstly, the actual game always ran completely fine. The only place where
-it hung was the initial settings configuration on the first startup.
+it hung was on the first startup where the game automatically configures
+graphics settings (I'll call it autoconfiguration from here).
 
 Additionally, while I could reproduce the hang on my Steam Deck, I couldn't
 get the hang to appear on my desktop. I have an RDNA2 graphics card, which
@@ -362,7 +363,7 @@ because they worked just one submission prior.
 
 I verified this theory by forcing full shader synchronization to happen before
 the timestamp write, but only for the submission that actually hangs. To my
-surprise, this did nothing to actually fix the hangs.
+surprise, this did nothing to fix the hangs.
 
 When I applied the synchronization trick to the previous submit (that always
 worked fine!), the hangs stopped appearing.
