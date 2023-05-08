@@ -5,13 +5,13 @@ layout: "post"
 
 GPU hangs are one of the most common results of pretty much anything going
 wrong GPU-side, and finding out why they occur isn't always easy. In this blog
-post I'll try documenting my journey towards finding the cause of one specific
+post, I'll document my journey towards finding the cause of one specific
 hang in the game "Splitgate".
 
 
 Right off the bat, I noticed a few oddities with this particular hang.
 Firstly, the actual game always ran completely fine. The only place where
-where it hung was the initial settings configuration on the first startup.
+it hung was the initial settings configuration on the first startup.
 
 Additionally, while I could reproduce the hang on my Steam Deck, I couldn't
 get the hang to appear on my desktop. I have an RDNA2 graphics card, which
