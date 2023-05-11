@@ -34,10 +34,6 @@ As any software, the Validation Layers aren't perfect and can't detect every
 possible invalid behaviour. At this point I was still unsure whether I'd have to
 search for the bug on the application side or on the driver side.
 
-{:refdef: style="text-align: center;"}
-![app or driver bug?](/assets/memes/app-vs-driver-bug.png){: width="450" }
-{: refdef}
-
 ## API dumping
 
 With the validation layers being unable to detect any invalid behaviour by the app
@@ -368,6 +364,9 @@ surprise, this did nothing to fix the hangs.
 When I applied the synchronization trick to the previous submit (that always
 worked fine!), the hangs stopped appearing.
 
+It seems like the cause of the hang is not in the hanging submission, but in a
+completely separate one that completed successfully.
+
 {:refdef: style="text-align: center;"}
 ![most uncanny mr incredible](/assets/memes/uncanny-mr-incredible-5.png){: height="250" }
 {: refdef}
@@ -449,8 +448,7 @@ took way too long.
 
 ## Why does my workaround work?
 
-For the first time in this blog post, this section starts off with less
-open questions than the previous one. There is still an open question,
+Finally, things start clearing up a bit. There is still an open question,
 though: What does the workaround do to prevent this?
 
 The code that runs the 3 benchmark passes doesn't always run them
@@ -468,9 +466,10 @@ time until the benchmark workload completes. But as I pointed out all the way
 near the beginning, the timestamp can be written before the benchmark workload
 is even finished!
 
+If the timestamp is written before the benchmark workload finishes, the
+measured benchmark time is much less than the workload actually took.
 In practice, this results in the benchmark results indicating a much faster GPU
-than there actually is. Therefore, the measured total benchmark time was way
-less than it should've been, which led to the third benchmark (which was too
+than there actually is. I assume this led to the third benchmark (which was too
 heavy for the Deck GPU) to be launched. My desktop GPU seems to be powerful
 enough to get through the benchmark before the lockup timeout, which is why
 I couldn't reproduce the issue there.
