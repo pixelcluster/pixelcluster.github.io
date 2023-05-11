@@ -130,8 +130,8 @@ GPU's command processor (CP for short) when the command buffer is submitted.
 
 These commands might also be involved in the hang, so I tried finding out which
 commands the CP was executing when the hang happened. RADV has integrated debug
-functionality for this exact purpose, which can be enabled by setting an
-environment variable named `RADV_DEBUG` to `"hang"`. But when I tried
+functionality that can help with exactly this, which can be enabled by setting
+an environment variable named `RADV_DEBUG` to `"hang"`. But when I tried
 triggering the hang with this environment variable in place, it started up just
 fine!
 
@@ -199,7 +199,9 @@ hang.
 Timestamp writes on AMD hardware don't require launching any shaders.
 They can be implemented using one PKT3 command called `COPY_DATA`[^5], which
 accepts many data sources other than memory. One of these data sources is the
-current timestamp.
+current timestamp. RADV uses `COPY_DATA` to write the timestamp to memory.
+The memory for these timestamps is managed by the driver, so it's exceedingly
+unlikely the memory write would fail.
 
 From the wave analysis with umr earlier I also knew that the in-flight shaders
 didn't actually write or read any memory that might interfere with the
