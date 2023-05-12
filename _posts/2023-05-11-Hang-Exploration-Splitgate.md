@@ -491,7 +491,7 @@ And I even got to make my first bugreport for Unreal Engine.
 
 [^1]: If an app is using Vulkan on multiple threads, this might not always be the case. This is a rare case where I'm grateful for Unreal Engine to have a single RHI thread.
 [^2]: Nvidia also calls them "warps".
-[^3]: Short for "Packet 3". Packet 2, 1 and 0 also exist, although they were only used on older AMD hardware.
+[^3]: Short for "Packet 3". Packet 2, 1 and 0 also exist, although they aren't widely used on newer AMD hardware.
 [^4]: If you insert certain pipeline barriers, writing the timestamp early would be disallowed, but these barriers weren't there in this case. 
 [^5]: This command writes the timestamp immediately when the CP executes it. There is another command which waits for previous commands to finish before writing the timestamp.
 [^6]: You can also view the original NIR and the GLSL translation [here](https://gitlab.freedesktop.org/mesa/mesa/-/blob/0b251d43/src/amd/vulkan/radv_query.c#L531)
