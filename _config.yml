@@ -30,3 +30,5 @@ comments:
 
 plugins: 
   - jekyll-feed
+
+keep_files: [.well-known]
