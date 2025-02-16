@@ -5,7 +5,7 @@ layout: page
 ---
 Hi! Welcome to my blog page! 🐸
 
-My name is Friedrich Vock, I'm 19 years old, and I like everything low-level, Linux, and GPUs, which I occasionally blog about here.
+My name is Natalie Vock, I'm 19 years old, and I like everything low-level, Linux, and GPUs, which I occasionally blog about here.
 
 In parallel to studying Computer Science at the University of Konstanz I'm working as an independent contractor for Valve on RADV, the community-developed open-source Vulkan driver for AMD GPUs.
 
