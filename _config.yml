@@ -1,5 +1,5 @@
 title: "clusterduck - pixelcluster's GPU blog"
-author: "Friedrich Vock"
+author: "Natalie Vock"
 description: "🐸🐸🐸🐸🐸"
 permalink: /:title/
 lang: "en"
@@ -20,7 +20,7 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "README.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:friedrich.vock@gmx.de"}
+  - {title: Mail, icon: envelope, url: "mailto:natalie.vock@gmx.de"}
   - {title: Github, icon: github, url: "https://github.com/pixelcluster"}
   - {title: Mastodon, icon: mastodon, url: "https://mastodon.gamedev.place/@pixelcluster"}
   - {title: RSS, icon: rss, url: "/feed.xml"}
