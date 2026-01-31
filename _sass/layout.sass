@@ -1,28 +1,42 @@
 body
   display: flex
   flex-direction: column
-
-article
-  flex-grow: 1
+  min-height: 100vh
+  margin: 0
+  box-sizing: border-box
+  -webkit-text-size-adjust: 100%
 
 body > header, body > footer
   display: flex
   flex-wrap: wrap
-  align-items: center
   justify-content: space-between
+  align-items: center
 
-body > header, body > article, body > footer
-  padding: 1.5em
+header a, footer a
+  display: inline-block
 
-article header
-  margin-bottom: 1.5em
-
-article header h1
-  font-size: 1.7em
-  margin: 0 0 .1em
+footer a
+  margin: .75em 0
 
 nav
-  margin: .5em -1.2em
+  margin: .5em -1.3em
+  a
+    margin: 0 1.3em
+  svg
+    font-size: 1.1em
+    vertical-align: sub
 
-nav a
-  margin: .5em 1.2em
+main nav
+  font-size: 1.1em
+  margin: 1.4em 0
+  div
+    margin: .5em 0
+
+header h1
+  font-size: 1.75em
+  margin: 0
+  body > &
+    font-size: 1.35em
+
+article, main
+  flex-grow: 1

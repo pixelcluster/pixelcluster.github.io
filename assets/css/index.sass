@@ -1,28 +1,9 @@
 ---
 ---
 
-@import index, font, basic, layout, classes
+@import utils, basic, layout, classes, rouge_github
 
-@media (min-width: 40em)
-  body > header, body > article, body > footer
-    padding: 1.75em calc(40% - 17em)
-
-{% if site.minimal %}
-
-body > header
-  background: $dark
-  color: $light
-  border-bottom: 1px solid reduce(14)
-
-{% else %}
-
-body > header
-  box-shadow: 0 0 .6em rgba($dark, 0.04)
-  border-bottom: 1px solid reduce(14)
-
-{% endif %}
-
-body > footer
-  box-shadow: 0 0 .6em rgba($dark, 0.04) inset
-  border-top: 1px solid reduce(14)
-  opacity: .9
+body > *
+  padding: 1.75em calc(42% - 16rem)
+  padding: clamp(1.5em, 4vw, 1.75em) max(1.5em, calc(42% - 16rem))
+  box-shadow: 0 1px gray(12), 0 1em 2em -1em rgba(light(16), .05)
