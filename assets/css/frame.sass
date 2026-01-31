@@ -1,25 +1,37 @@
 ---
 ---
 
-@import index, font, basic, layout, classes
-
-html
-  background: lighten($dark, 70%)
-  padding: 0 calc(38% - 22em)
+@import utils, basic, layout, classes, rouge_github
 
 body
-  box-shadow: 0 0 .3em lighten($dark, 65%)
+  background: light(93)
+  background: light(93, 16)
+  padding: 0 calc(38% - 22rem)
+
+body > *
+  background: light(100)
+  background: light(100, 17)
+  color: light(0, 100)
+  padding: 1.75em calc(22% - 6rem)
+  padding: clamp(1.5em, 4vw, 1.75em) max(1.5em, 22% - 6rem)
+  box-shadow: 0 -1px gray(10) inset, 0 0 1em light-dark(gray(10), transparent), 0 0 0 1px light-dark(transparent, light(26))
 
 body > header, body > footer
-  background: lighten($dark, 5%)
-  color: $light
+  background: light(20)
+  background: light(20, 17)
+  color: light(100)
 
-@media (min-width: 32em)
-  body > header, body > article, body > footer
-    padding: 1.75em calc(22% - 6em)
+{% if site.show_frame contains "." %}
 
-@media (prefers-color-scheme: dark)
-  body, body > header, body > footer
-    box-shadow: 0 0 0 1px lighten($dark, 8%)
-  html, body > header, body > footer
-    background: $dark
+@media (min-width: 60em)
+  body
+    background: 0 0/cover url({{ site.show_frame | relative_url }})
+    background-attachment: fixed
+    color-scheme: only light
+    padding: 1em calc(38% - 22rem)
+    > :first-child
+      border-radius: 4px 4px 0 0
+    > :last-child
+      border-radius: 0 0 4px 4px
+
+{% endif %}

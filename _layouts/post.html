@@ -5,28 +5,19 @@ layout: default
 <article>
   {% include meta.html post=page %}
   {{ content }}
-  {% if page.comments != false and site.comments.isso or site.comments.disqus or site.comments.giscus %}
+  {% if site.comments.isso_domain or site.comments.disqus_shortname %}
     <hr>
     {% if site.comments.isso_domain %}<div id="isso-thread"></div>{% endif %}
     {% if site.comments.disqus_shortname %}<div id="disqus_thread"></div>{% endif %}
-    {% if site.comments.giscus and page.layout == "post" %}
-    <script src="https://giscus.app/client.js"
-        data-repo="pixelcluster/pixelcluster.github.io"
-        data-repo-id="R_kgDOJfQlhA"
-        data-category="Comments"
-        data-category-id="DIC_kwDOJfQlhM4CWSfU"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark_dimmed"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-    </script>
-    {% endif %}
-
     <noscript>Please enable JavaScript to view comments.</noscript>
   {% endif %}
 </article>
+
+{% unless site.show_minimal or site.footer  %}
+{% if page.next.url or page.previous.url %}
+<footer class="nowrap {% if site.show_frame %}dark{% else %}smooth{% endif %}">
+  {% if page.next.url %}<a href="{{ page.next.url | relative_url }}">« {{ page.next.title }}</a> {% endif %}
+  {% if page.previous.url %} <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }} »</a>{% endif %}
+</footer>
+{% endif %}
+{% endunless %}

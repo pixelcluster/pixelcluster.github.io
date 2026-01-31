@@ -1,55 +1,50 @@
 ---
 ---
 
-@import index
-
-html
-  padding: 0
+@import utils
 
 body
-  font-size: 1.06em
-  margin: 0 0 0 16.5em
-  max-width: inherit
-  overscroll-behavior: none
+  font-size: calc(0.8rem + 0.3vw)
+  padding: 0 0 0 18em
+  background: light(100, 17)
 
 body > header, body > footer
   display: none
 
-body > article
-  margin: 0 5em
-  padding: 2em 0
+body > *
+  margin: 0
+  padding: 2em 6em
   max-width: 50em
+  box-shadow: none
 
 aside
-  display: block!important
+  display: flex!important
+  flex-direction: column
   position: fixed
-  overflow: auto
-  background: darken($dark, 2%)
-  color: #fff
-  padding: 2.25em
-  width: 12em
+  width: 18em
+  padding: 2em 0
   top: 0
   bottom: 0
   left: 0
+  background: light(14)
+  color: light(100)
+  border-right: 1px solid light(22)
 
-article header h1
-  font-size: 2em
-
-nav
-  margin: 0 -2.25em
-
-nav a
-  display: block
+aside nav
   margin: 0
-  padding: .5em 2.25em
+  flex-grow: 1
+  a
+    display: block
+    font-weight: inherit
+    margin: 0
+    padding: .6em 2em
+    border-radius: 0
+    word-wrap: break-word
+    &:hover, &.selected
+      background: light(20)
+      color: inherit
+  svg
+    margin: 0 1em 1px 0
 
-nav a:hover, nav a.selected
-  background: lighten($dark, 2%)
-  text-decoration: inherit
-
-.icon
-  margin-right: 1.2em
-  color: inherit!important
-
-.description
-  margin: 2em 0
+aside footer
+  padding: 1em 2em
