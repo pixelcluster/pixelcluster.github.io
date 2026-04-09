@@ -153,7 +153,7 @@ For desktops, this is an important heuristic, but it's totally not the kernel's 
 
 I personally use KDE Plasma as my desktop environment, so I went looking for how such a thing could be integrated into Plasma. Lo and behold, it was already done! Plasma people already developed the
 [ForegroundBooster](https://invent.kde.org/libraries/kcgroups/-/tree/work/davidre/foreground-booster-qt6) utility that listens to which app is currently in the foreground, and tries to give it higher prioritization (in this case: wrt. CPU time)
-than other apps. This prioritization was also done via cgroups, so adding VRAM prioritization was pretty much a walk in the park.
+than other apps. This prioritization was also done via cgroups, so adding VRAM prioritization in [my fork](https://github.com/pixelcluster/kcgroups) was pretty much a walk in the park.
 
 Except for one thing - the ForegroundBooster utility doesn't manage cgroups and cgroup properties directly. systemd is responsible for managing cgroups, so ForegroundBooster just communicates with systemd to set the cgroup properties.
 That's not too bad though, let's just implement support for the dmem cgroup controller in systemd, right?
@@ -164,7 +164,7 @@ implementation seems mostly off-limits until the dust has settled some more.
 
 What do we do if we can't tell systemd to do the thing we want? That's right, we do it anyway, but behind systemd's back. (Sorry, systemd.)
 
-This is what the final piece of the puzzle, `dmemcg-booster` does (safely and 🚀blazingly fast🚀). After systemd constructs the cgroup hierarchy, `dmemcg-booster` goes over those cgroups and additionally enables the `dmem` controller on them, in order to activate the kernel functionality
+This is what the final piece of the puzzle, [dmemcg-booster](https://gitlab.steamos.cloud/holo/dmemcg-booster) does (safely and 🚀blazingly fast🚀). After systemd constructs the cgroup hierarchy, `dmemcg-booster` goes over those cgroups and additionally enables the `dmem` controller on them, in order to activate the kernel functionality
 that ultimately allows for GPU memory protection on those cgroups. While at it, it also sets some settings in the cgroup hierarchy that allow the memory protection to kick in properly.
 
 Of course, this is a rather ugly stopgap. Once systemd gains proper support, you'd express all this with drop-in unit configurations, which is a much prettier approach. The `dmemcg-booster` utility is exclusively there to bridge the gap until that proper support happens.
