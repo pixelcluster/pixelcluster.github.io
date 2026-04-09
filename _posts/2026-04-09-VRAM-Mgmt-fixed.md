@@ -27,7 +27,7 @@ For the kernel side, you can either use the CachyOS kernel package on a non-Cach
 or you can compile your own kernel. Installing `linux-dmemcg` from the AUR will compile the **development branch** I used to develop this.
 Being a development branch, this carries the risk of some stuff being broken, so install at your own risk!
 
-If you want to apply the kernel patches yourself, you need these six .patch files:
+If you want to apply the kernel patches yourself, you need these six .patch files:\
 [Patch 1](https://gitlab.freedesktop.org/pixelcluster/kernel/-/commit/9d928b2c5af078304205c12c71fec4904860d8cc.patch)\
 [Patch 2](https://gitlab.freedesktop.org/pixelcluster/kernel/-/commit/9a02490c9f7938a4ed8950f0d61bcf677f67c07b.patch)\
 [Patch 3](https://gitlab.freedesktop.org/pixelcluster/kernel/-/commit/1f24ddd4ffd04f47a04bd84987f36dc545bc7421.patch)\
