@@ -16,8 +16,8 @@ That is, until now. Because I fixed it.
 
 A: You need some kernel patches as well as additional utilities to make use of the kernel capabilities properly.
 
-The simplest option is to use CachyOS (with KDE as your desktop). Their 7.0 kernel includes the patches you need, and the userspace utilities are available in the
-package repositories. All you need to do is use CachyOS's 7.0 kernel, install the packages called `dmemcg-booster` and `plasma-foreground-booster`, and you should be good to go.
+The simplest option is to use CachyOS (with KDE as your desktop). Their kernel includes the patches you need from version 7.0rc7-2 and up, and the userspace utilities are available in the
+package repositories. All you need to do is use CachyOS's 7.0rc7-2 kernel, install the packages called `dmemcg-booster` and `plasma-foreground-booster`, and you should be good to go.
 
 ### Q: I use another Arch-based distro! What now?
 
