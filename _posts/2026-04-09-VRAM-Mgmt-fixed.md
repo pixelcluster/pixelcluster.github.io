@@ -183,3 +183,23 @@ Prioritization via cgroups now allows the game to use pretty much every last byt
 over time as you run around in the game, but the improvement should be obvious when comparing how games feel when you play them for a while. Instead of performance slowly degrading over time,
 games should perform much more stable - as long as the game itself doesn't use more VRAM than you actually have. Generally, it seems like even modern games stay within a memory budget of ~8GB or a bit less, so
 if you have a GPU with 8GB of VRAM, you should be good to go with today's games.
+
+## More FAQ
+
+### Which GPUs does this work with? Is it only AMD GPUs?
+
+Whether or not your GPU can benefit from it depends on the kernel driver - more specifically, whether it sets up the dmem cgroup controller.
+
+`amdgpu` and `xe` both have support for the dmem cgroup controller already. In theory, Intel GPUs running the `xe` kernel driver should benefit as well, although I'm not sure anyone tested this yet.
+
+For `nouveau`, I have sent [a patch](https://lore.kernel.org/dri-devel/20260410081322.5577-1-natalie.vock@gmx.de/T/#u) for dmem cgroup support to the mailing lists.
+This patch is also included in my development branch, so if you use my AUR package it should work. In other cases, you will need to wait for the patch to be picked up by your distribution, or apply it yourself.
+
+The proprietary NVIDIA kernel modules do not support dmem cgroups yet, so this won't work there.
+
+### Do iGPUs/APU systems benefit from this too?
+
+I don't actually know :)
+
+The main problem (system RAM being slower than dedicated VRAM) does not exist on integrated GPUs, because they use system RAM for everything - so effects will most likely be more limited than on dGPUs.
+Maybe it still has some benefit? It probably requires careful testing to find out.
