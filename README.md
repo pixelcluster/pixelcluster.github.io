@@ -9,4 +9,4 @@ My name is Natalie Vock, I'm 21 years old, and I like everything low-level, Linu
 
 In parallel to studying Computer Science at the University of Konstanz I'm working as an independent contractor for Valve on RADV, the community-developed open-source Vulkan driver for AMD GPUs.
 
-If you want to reach out, I linked my accounts on various social media platforms in the bottom right corner.
+If you want to reach out, I linked my accounts on various social media platforms in the top right corner.
