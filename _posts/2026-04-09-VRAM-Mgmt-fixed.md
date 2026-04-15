@@ -19,6 +19,8 @@ A: You need some kernel patches as well as additional utilities to make use of t
 The simplest option is to use CachyOS (with KDE as your desktop). Their kernel includes the patches you need from version 7.0rc7-2 and up, and the userspace utilities are available in the
 package repositories. All you need to do is use CachyOS's 7.0rc7-2 kernel, install the packages called `dmemcg-booster` and `plasma-foreground-booster`, and you should be good to go.
 
+**UPDATE**: CachyOS's 6.19.12 kernel also includes this, now. No need to use the -rc kernel anymore.
+
 ### Q: I use another Arch-based distro! What now?
 
 The `dmemcg-booster` and `plasma-foreground-booster` utilities are available in the AUR as well (`plasma-foreground-booster` carries the package name `plasma-foreground-booster-dmemcg`), so you can install them from there.
@@ -203,3 +205,7 @@ I don't actually know :)
 
 The main problem (system RAM being slower than dedicated VRAM) does not exist on integrated GPUs, because they use system RAM for everything - so effects will most likely be more limited than on dGPUs.
 Maybe it still has some benefit? It probably requires careful testing to find out.
+
+### Are the kernel patches merged upstream?
+
+No, they haven't arrived in upstream Linux yet, but I've sent them to the mailing lists and things are in-progress. I'll update this when I know which mainline Linux release will pick these patches up.
